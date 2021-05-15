@@ -5,5 +5,4 @@ urlpatterns = [
 
     path("account/", include("account.urls")),
 
-    # path("join_request", JoinRequestView.as_view(), name="join_requests")
 ]

@@ -33,7 +33,6 @@ from .serializers import *
 
 
 class Login(APIView):
-    # queryset = get_user_model().objects.all()
     permission_classes = []
     def post(self, request):
 
@@ -50,18 +49,6 @@ class Login(APIView):
 
 
 
-# def Login(request):
-#     print(request.body)
-#     print(request)
-#     if request.method != "POST":
-#         return HttpResponseRedirect("/login/")
-#     form = AuthenticationForm(request.POST)
-#     user = authenticate(request, username=username, password=password)
-#     if user is not None:
-#         login(request, user)
-#         return Response({"success": "You have logged in"})
-#     else:
-#         return Response({"error": ["Invalid Credentials"]})
 class SendPasswordReset(APIView):
     permission_classes = []
     token_generator = PasswordResetTokenGenerator()
@@ -215,8 +202,7 @@ def activate(request, uidb64, token):
     if user is not None and EmailVerificationTokenGenerator().check_token(user, token):
         user.verified = True
         user.save()
-        #login(request, user)
-        # return redirect('home')
+
         return render(request, "registration/email_activation_complete.html")
     else:
         return render(request, "registration/invalid_link.html")
