@@ -1,0 +1,14 @@
+# created by virtualenv automatically
+/Scripts/
+/Lib/
+.env
+/node_modules/
+**/__pycache__/*.pyc
+./pyvenv.cfg
+
+__pycache__/
+pyvenv.cfg
+.idea/workspace.xml
+.idea/**/*
+
+*.env

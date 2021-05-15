@@ -1,0 +1,32 @@
+{% extends 'frontend/index.html' %}
+{% load utils %}
+{% block content %}
+<div class="container">
+  <div class="col-lg-6 offset-lg-3">
+  <h2 >Sign up</h2>
+  <form  method="post" class="form ">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+      <p>{{ field.label_tag }}</p>
+      {{ field|add_attr:"class:form-control" }}
+      {% if field.help_text %}
+        <small style="display: none">{{ field.help_text }}</small>
+      {% endif %}
+      {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+      {% endfor %}
+
+    </div>
+    {% endfor %}
+    <p> Your password must contain at least 8 characters.</p>
+
+    <input value="Sign Up" type="submit" class="btn btn-primary align-content-center">
+
+
+  </form>
+  </div>
+</div>
+
+{% endblock %}
+

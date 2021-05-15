@@ -1,0 +1,21 @@
+#root{
+    background-color: #FFFFFF;
+    height: 100%;
+
+}
+
+
+html, body, main, .site {
+    height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hover:hover {
+  cursor: pointer;
+}
+.underline {
+  text-decoration-line: underline;
+}

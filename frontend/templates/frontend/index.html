@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'frontend/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+    <title>Django React Starter App</title>
+</head>
+<body>
+<div class="d-flex flex-column h-100">
+<nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+<!--    navbar-dark bg-dark -->
+    <a href="/">HOME</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+
+      {% if user.is_authenticated %}
+<div class="dropdown mx-2">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    My Account
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/account/settings">Settings</a>
+
+
+  </div>
+</div>
+    <a href="/api/account/logout" class="btn btn-primary my-2 mr-sm-2">Logout</a>
+
+    {% else %}
+    <a class="btn btn-primary" href="/account/signup">Sign up</a>
+    <a class="btn btn-primary" href="/account/login">Login</a>
+    {% endif %}
+
+
+</nav>
+{% csrf_token %}
+
+
+{% block content %}
+    <div id="root" class="d-flex flex-column">
+        <div class="d-flex justify-content-center align-items-center" style="flex: 1">
+            <div class="spinner-border"  role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'frontend/public/main.js' %}"></script>
+{% endblock %}
+</div>
+
+</body>
+</html>
