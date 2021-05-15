@@ -7,9 +7,10 @@ Setup steps:
 2. pip install -r requirements.txt
 3. Install Node.js
 4. npm install --production=false
-5. Create a .env file in the root directory with all of the database parameters and secret key etc. 
-6. python manage.py migrate
-7. python manage.py runserver
+5. npm run build
+6. Create a .env file in the root directory with all of the database parameters and secret key etc. 
+7. python manage.py migrate
+8. python manage.py runserver
 
 
 The frontend uses the MaterialUI react package. All undefined url paths end up serving the frontend index view. This frontend index view has the root element that react mounts to. 
